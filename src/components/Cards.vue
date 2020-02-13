@@ -61,10 +61,10 @@ export default {
       )
         .then(response => response.text())
         // .then(response => console.log(response))
-        .then(result => this.generateNewCards(result))
+        .then(result => this.generateUICards(result))
         .catch(error => console.log('error', error))
     },
-    generateNewCards: function (result) {
+    generateUICards: function (result) {
       result = JSON.parse(result).albums.items
       console.log(result)
       for (const item in result) {
