@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <Card v-for="card in cards" :key="card" :title="card.title" :img="card.image" />
+    <Card v-for="card in cards" :key="card.title" :title="card.title" :img="card.img" />
   </div>
 </template>
 
@@ -56,7 +56,7 @@ export default {
       }
 
       fetch(
-        'https://api.spotify.com/v1/browse/new-releases?country=fr&limit=50',
+        'https://api.spotify.com/v1/browse/new-releases?country=fr&limit=24',
         requestOptions
       )
         .then(response => response.text())
@@ -71,7 +71,7 @@ export default {
         const album = result[item]
         console.log(album.name)
         console.log(album.images['0'].url)
-        this.cards.push({ title: album.name, image: album.images['0'].url })
+        this.cards.push({ title: album.name, img: album.images['0'].url })
       }
     }
   },
