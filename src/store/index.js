@@ -10,6 +10,10 @@ export default new Vuex.Store({
   mutations: {
     addFavorite (state, favorite) {
       state.favorites.push(favorite)
+    },
+    removeFavorite (state, title) {
+      var removeIndex = state.favorites.map(function (favorite) { return favorite.title }).indexOf(title)
+      state.favorites.splice(removeIndex, 1)
     }
   },
   getters: {

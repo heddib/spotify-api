@@ -31,6 +31,8 @@ export default {
     addToFavorites: function () {
       if (!this.addedToFavorites) {
         store.commit('addFavorite', { title: this.title, img: this.img })
+      } else {
+        store.commit('removeFavorite', this.title)
       }
     }
   }

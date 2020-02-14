@@ -13,17 +13,17 @@ export default {
   components: {
     Card
   },
+  computed: {
+    cards: function () {
+      return (store.getters.getFavorites)
+    }
+  },
   mounted () {
     this.generateCards()
   },
   methods: {
     generateCards: function () {
       this.cards = [...store.getters.getFavorites]
-    }
-  },
-  data: function () {
-    return {
-      cards: []
     }
   }
 }
