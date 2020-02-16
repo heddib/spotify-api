@@ -8,7 +8,7 @@
       :alt="title"
     />
     <div class="title">
-      <p>{{ title }}</p>
+      <a :href="url" target="_blank">{{ title }}</a>
     </div>
   </div>
 </template>
@@ -25,12 +25,13 @@ export default {
   },
   props: {
     img: String,
-    title: String
+    title: String,
+    url: String
   },
   methods: {
     addToFavorites: function () {
       if (!this.addedToFavorites) {
-        store.commit('addFavorite', { title: this.title, img: this.img })
+        store.commit('addFavorite', { title: this.title, img: this.img, url: this.url })
       } else {
         store.commit('removeFavorite', this.title)
       }
@@ -63,7 +64,7 @@ export default {
   margin-top: 180px;
 }
 
-.card .title p {
+.card .title a {
   top: -175px;
   color: #fff;
   position: relative;

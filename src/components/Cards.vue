@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <Card v-for="card in cards" :key="card.title" :title="card.title" :img="card.img" />
+    <Card v-for="card in cards" :key="card.title" :title="card.title" :img="card.img" :url="card.url" />
   </div>
 </template>
 
@@ -71,7 +71,8 @@ export default {
         const album = result[item]
         console.log(album.name)
         console.log(album.images['0'].url)
-        this.cards.push({ title: album.name, img: album.images['0'].url })
+        console.log(album.external_urls.spotify)
+        this.cards.push({ title: album.name, img: album.images['0'].url, url: album.external_urls.spotify })
       }
     }
   },
